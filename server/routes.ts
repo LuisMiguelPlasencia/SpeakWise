@@ -25,11 +25,12 @@ const upload = multer({
   }
 });
 
+/*
 // Initialize OpenAI
 const openai = new OpenAI({ 
   apiKey: process.env.OPENAI_API_KEY || process.env.VITE_OPENAI_API_KEY
 });
-
+*/
 // Initialize AssemblyAI (using fetch since no official SDK in dependencies)
 const ASSEMBLY_AI_API_KEY = process.env.ASSEMBLY_AI_API_KEY || process.env.VITE_ASSEMBLY_AI_API_KEY;
 
@@ -122,7 +123,7 @@ async function analyzePitch(transcription: string): Promise<{
 }> {
   try {
     // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-    const response = await openai.chat.completions.create({
+    /*const response = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
         {
@@ -147,15 +148,16 @@ Respond with JSON in this exact format:
         }
       ],
       response_format: { type: "json_object" },
-    });
+    })*/;
 
-    const result = JSON.parse(response.choices[0].message.content || '{}');
+    //response = {}
+    //const result = JSON.parse(response.choices[0].message.content || '{}');
     
     return {
-      score: Math.max(1, Math.min(10, Math.round(result.score || 5))),
-      summary: result.summary || 'Analysis unavailable',
-      strengths: Array.isArray(result.strengths) ? result.strengths.slice(0, 2) : ['Unable to analyze strengths'],
-      improvements: Array.isArray(result.improvements) ? result.improvements.slice(0, 2) : ['Unable to analyze improvements'],
+      score: Math.max(1, Math.min(10, Math.round( 5))),
+      summary:  'Analysis unavailable',
+      strengths: ['Unable to analyze strengths'],
+      improvements: ['Unable to analyze improvements'],
     };
   } catch (error) {
     console.error('Pitch analysis error:', error);

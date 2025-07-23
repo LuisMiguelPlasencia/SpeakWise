@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { savePitchAnalysis } from "@/lib/firebase";
+//import { savePitchAnalysis } from "@/lib/firebase";
 import Header from "@/components/Header";
 import FileUpload from "@/components/FileUpload";
 import ProcessingSteps from "@/components/ProcessingSteps";

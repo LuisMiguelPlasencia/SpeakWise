@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: `${import.meta.env.VITE_FIREBASE_PROJECT_ID}.firebasestorage.app`,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
-
+/*
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
@@ -38,3 +38,4 @@ export async function getPitchAnalyses() {
     throw error;
   }
 }
+*/
